@@ -1,0 +1,12 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_price = float('inf')  # Initialize to a very large number
+        max_profit = 0
+        
+        for price in prices:
+            if price < min_price:
+                min_price = price  # Update to the lowest price seen so far
+            else:
+                max_profit = max(max_profit, price - min_price)  # Check if selling now gives better profit
+                
+        return max_profit
